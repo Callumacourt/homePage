@@ -1,15 +1,22 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // Ensure this is required
 
 module.exports = {
-  entry: './src/index.js',
+  mode: 'development',
+  entry: {
+    index: './src/index.js',
+  },
+  devtool: 'inline-source-map',
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Development',
+      template: './src/index.html',
+    }),
+  ],
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-  },
-  devtool: 'source-map',
-  mode: 'production',
-  devServer: {
-    static: './dist',
+    clean: true,
   },
   module: {
     rules: [
@@ -19,10 +26,6 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
       },
     ],
