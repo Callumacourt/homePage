@@ -1,3 +1,97 @@
-.headerContainer{
-background-color: black;
+ /* CSS reset*/
+ 
+ .iconContainer::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+/* end of reset */
+
+body{
+line-height: 1.5;
+-webkit-font-smoothing: antialiased;
+background-image: url(./assets/images/background.jpg);
+background-size:cover;
+background-position: center;
+background-repeat: no-repeat;
+height: 100vh;
+background-attachment: fixed;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5vh;
+}
+
+.imageContainer{
+    width: 50%;
+    max-width: 400px;
+    overflow: hidden;
+    }
+
+    .imageContainer img{
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    }
+
+    main{
+        display: grid;
+    }
+
+    .aboutContainer{
+        display: grid;
+        grid-template-rows: 1fr 7fr 1fr;
+        justify-items:  center;
+    }
+
+    .headerContainer{
+    padding-top: 0.5em;
+    }
+
+    .textContainer p{
+    line-height: 1.4;
+    margin-bottom: 1em;
+    text-align: justify;
+    margin-left: 1em;
+    margin-right: 1em;
+ 
+    }
+
+    .iconContainer{
+    height: auto;
+    width: 100%;
+    display: flex;
+    gap: 0.5em;
+    justify-content: center;
+    }
+
+.iconContainer img{
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    max-width: 35px;
+
 }
