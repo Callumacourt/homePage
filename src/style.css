@@ -46,7 +46,7 @@ header{
 }
 
 .imageContainer{
-    width: 50%;
+    width: 60%;
     max-width: 400px;
     overflow: hidden;
     }
@@ -69,10 +69,12 @@ header{
 
     .headerContainer{
     padding-top: 0.5em;
+    font-size: 1.3em;
     }
 
     .textContainer p{
     line-height: 1.4;
+    font-size: clamp(1.2rem, 2vw, 1.25rem);
     margin-bottom: 1em;
     text-align: justify;
     margin-left: 1em;
@@ -94,4 +96,64 @@ header{
     object-fit: cover;
     max-width: 35px;
 
+}
+
+.workSection{width: 100%;
+display: flex;
+justify-content: center;}
+
+.myWork{
+  margin-top: 2vh;
+display: grid;
+gap: 2%;
+grid-template-rows: 0.5fr, repeat(7, 1fr);
+justify-items: center;
+max-width: 80%;
+}
+
+.project{
+  display: grid;
+  grid-template-rows: 1fr 1fr;;
+  justify-items: center;
+  padding: 10px;
+  background-color: #b8b4ab;
+  box-shadow: 2px 4px 10px -5px black
+}
+
+  .workTxtContainer{
+    grid-row-start: 2;
+    background-color:white;
+    opacity: 85%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 0.1fr 1fr;
+    font-size: 1.3em;
+  }
+
+  .workTxtContainer p{
+  padding: 5px;
+  }
+
+  .topRow{
+    display: grid;
+    grid-template-columns: repeat(4, 2.5fr);
+    align-items: center;
+    padding-top: 6px;
+    margin-bottom: 7px;
+  }
+
+  .topRow h5{
+  grid-column: 2/3;
+  font-size: 1.2em;
+  font-style: italic;
+  }
+
+  .workTxtContainer img{
+    min-height: 20px;
+  }
+
+.topRow a, .projectLinkImg{
+
+  max-width: 30px;
+  grid-column-start: 4;
 }
