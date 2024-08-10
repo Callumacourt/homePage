@@ -18,6 +18,8 @@ export default function loadDom() {
   const linkedInLink = document.querySelector('.social-link');
   const projectLink1 = document.querySelector('.project-link-1');
   const project1PicContainers = document.querySelectorAll('.project');
+  const footerIcn1 = document.querySelector('.footerIcn1');
+  const footerIcn2 = document.querySelector('.footerIcn2');
 
   // Check if the elements exist to avoid errors
   if (!portraitContainer || !gitHubLink || !linkedInLink) {
@@ -79,4 +81,14 @@ export default function loadDom() {
       console.error(`.project-link-${i + 1} not found`);
     }
   }
+
+  const footerLinkedIn = new Image();
+  footerLinkedIn.src = linkedInIcon;
+  footerLinkedIn.alt = 'LinkedIn social link';
+  footerIcn1.appendChild(footerLinkedIn);
+
+  const footerGitHub = new Image();
+  footerGitHub.src = gitHubIcon;
+  footerGitHub.alt = 'Github social link';
+  footerIcn2.appendChild(footerGitHub);
 }
