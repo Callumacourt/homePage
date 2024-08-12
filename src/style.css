@@ -48,6 +48,12 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
 header {
@@ -56,6 +62,18 @@ header {
   align-items: center;
   padding-top: 5vh;
 }
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+  }
+}
+
 
 .imageContainer {
   width: 60%;
@@ -127,14 +145,14 @@ header {
 }
 
 .workTxtContainer p {
-  padding: 5px;
+  padding: 20px;
 }
 
 .project {
   display: grid;
   grid-template-rows: auto 1fr;
   justify-items: center;
-  padding: 10px;
+  padding: 2px;
   background-color: #b8b4ab;
   box-shadow: 2px 4px 10px -5px black;
 }
@@ -155,7 +173,7 @@ header {
 
 .topRow h5 {
   grid-column: 2/3;
-  font-size: 1.2em;
+  font-size: 1.8rem;
   font-style: italic;
   white-space: nowrap;
 }
@@ -175,12 +193,14 @@ header {
   grid-template-rows: auto auto;
   justify-items: center;
   width: 100%;
-  text-align: justify;
+  text-align: center;
 }
 
 .footerContainer {
   background-color: #7d7f7c;
-  font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 2rem); /* Minimum size 1rem, maximum size 2rem, scaling based on viewport width */
+  
+  
   gap: 30px;
   color: #d4d2cf;
   display: grid;
@@ -209,4 +229,14 @@ margin-bottom: 20%;
 .footerIcn, .footerIcn img{
 min-width: 20%;
 height: auto;
+}
+
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; 
+  border-radius: 10px; 
+  border: 3px solid transparent; 
 }

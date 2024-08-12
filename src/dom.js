@@ -10,6 +10,7 @@ import projectImg5 from './assets/images/cat5.jpg';
 import projectImg6 from './assets/images/cat6.jpg';
 import projectImg7 from './assets/images/cat7.jpg';
 import projectImg8 from './assets/images/cat8.jpg';
+import footerPortrait from './assets/images/footerP.jpg';
 
 export default function loadDom() {
   // Select DOM elements
@@ -20,6 +21,7 @@ export default function loadDom() {
   const project1PicContainers = document.querySelectorAll('.project');
   const footerIcn1 = document.querySelector('.footerIcn1');
   const footerIcn2 = document.querySelector('.footerIcn2');
+  const footerPcontainer = document.querySelector('.footerPortrait');
 
   // Check if the elements exist to avoid errors
   if (!portraitContainer || !gitHubLink || !linkedInLink) {
@@ -91,4 +93,9 @@ export default function loadDom() {
   footerGitHub.src = gitHubIcon;
   footerGitHub.alt = 'Github social link';
   footerIcn2.appendChild(footerGitHub);
+
+  const footerP = new Image();
+  footerP.src = footerPortrait;
+  footerP.alt = 'a portrait of a cat';
+  footerPcontainer.appendChild(footerP);
 }
