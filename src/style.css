@@ -40,16 +40,21 @@ h6 {
 
 /* end of reset */
 
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   background-image: url(./assets/images/background.jpg);
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment:fixed;
   opacity: 0;
   animation: fadeIn 1s ease-in forwards;
+  font-family: 'Roboto', sans-serif;
 }
 
 html{
@@ -96,6 +101,8 @@ header {
 .headerContainer {
   padding-top: 0.5em;
   font-size: 1.3em;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
 }
 
 .textContainer p {
@@ -164,18 +171,32 @@ header {
 }
 
 .topRow {
-  display: grid;
-  grid-template-columns: repeat(4, 2.5fr);
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   padding-top: 6px;
   margin-bottom: 7px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .topRow h5 {
-  grid-column: 2/3;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-style: italic;
+  font-family: 'Inter';
+  margin: 0;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* This ensures that long titles do not overflow */
+}
+
+.topRow a {
+  margin-left: 10px;
+  flex-shrink: 0; /* Prevents the icon from shrinking */
+}
+
+.projectLinkImg {
+  max-width: 30px;
 }
 
 .workTxtContainer img {
