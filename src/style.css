@@ -1,4 +1,6 @@
-/* CSS reset */
+/* ------------------------------------
+   CSS Reset
+------------------------------------ */
 
 *,
 .iconContainer::before,
@@ -38,59 +40,88 @@ h6 {
   isolation: isolate;
 }
 
-/* end of reset */
+/* ------------------------------------
+   Variables
+------------------------------------ */
 
+:root {
+  --primary-color: #7d7f7c;
+  --secondary-color: #b8b4ab;
+  --text-color: #d4d2cf;
+  --font-main: 'Roboto', sans-serif;
+  --font-accent: 'Inter', sans-serif;
+  --fade-in-duration: 1s;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+/* ------------------------------------
+   Global Styles
+------------------------------------ */
 
 body {
+  font-family: var(--font-main);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   background-image: url(./assets/images/background.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment:fixed;
+  background-attachment: fixed;
+  background-size: cover;
   opacity: 0;
-  animation: fadeIn 1s ease-in forwards;
-  font-family: 'Roboto', sans-serif;
+  animation: fadeIn var(--fade-in-duration) ease-in forwards;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 5vh;
+/* ------------------------------------
+   Typography
+------------------------------------ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-accent);
 }
 
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1s ease-in forwards;
+.textContainer p,
+.workTxtContainer p {
+  line-height: 1.4;
+  font-size: clamp(1.2rem, 2vw, 1.25rem);
+  margin: 0 1em 1em;
 }
 
-@keyframes fadeIn {
-  to {
-      opacity: 1;
-  }
-}
+/* ------------------------------------
+   Layout
+------------------------------------ */
 
-
-.imageContainer {
-  width: 60%;
-  max-width: 400px;
+.wrapper {
   overflow: hidden;
 }
 
-.imageContainer img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+/* ------------------------------------
+   Header
+------------------------------------ */
+
+header {
+  display: grid;
+  justify-items: center;
+  padding-top: 5vh;
 }
+
+.headerContainer {
+  padding-top: 0.5em;
+  font-size: 1.3em;
+  font-family: var(--font-accent);
+  font-style: italic;
+}
+
+/* ------------------------------------
+   About Section
+------------------------------------ */
 
 .aboutContainer {
   display: grid;
@@ -98,19 +129,30 @@ header {
   justify-items: center;
 }
 
-.headerContainer {
-  padding-top: 0.5em;
-  font-size: 1.3em;
-  font-family: 'Inter', sans-serif;
+.headerContainer h1 {
+  margin-left: 15px;
+  font-size: calc(2.6rem + 0.5vw);
   font-style: italic;
 }
 
-.textContainer p {
-  line-height: 1.4;
-  font-size: clamp(1.2rem, 2vw, 1.25rem);
-  margin: 0 1em 1em;
-  text-align: justify;
+.aboutContainer p {
+  font-size: calc(1rem + 0.5vw);
 }
+
+/* ------------------------------------
+   Image Container
+------------------------------------ */
+
+.imageContainer img {
+  padding: 10vmin;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ------------------------------------
+   Icon Container
+------------------------------------ */
 
 .iconContainer {
   width: 100%;
@@ -126,10 +168,22 @@ header {
   max-width: 35px;
 }
 
+.footerIconContainer {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  margin-bottom: 20%;
+}
+
+/* ------------------------------------
+   Work Section
+------------------------------------ */
+
 .workSection {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 30%;
 }
 
@@ -155,23 +209,29 @@ header {
   padding: 20px;
 }
 
+/* ------------------------------------
+   Project Section
+------------------------------------ */
+
 .project {
   display: grid;
+  height: auto;
+  min-width: 100%;
   grid-template-rows: auto 1fr;
   justify-items: center;
   padding: 2px;
-  background-color: #b8b4ab;
+  background-color: var(--secondary-color);
   box-shadow: 2px 4px 10px -5px black;
 }
 
 .project img {
-  width: 100%;
   height: auto;
   object-fit: cover;
 }
 
 .topRow {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
   align-items: center;
   justify-content: space-between;
   padding-top: 6px;
@@ -183,31 +243,21 @@ header {
 .topRow h5 {
   font-size: 1.5rem;
   font-style: italic;
-  font-family: 'Inter';
+  font-family: var(--font-accent);
   margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; /* This ensures that long titles do not overflow */
+  overflow-wrap: break-word;
 }
 
 .topRow a {
   margin-left: 10px;
-  flex-shrink: 0; /* Prevents the icon from shrinking */
+  flex-shrink: 0;
+  height: auto;
+  align-self: flex-start;
 }
 
-.projectLinkImg {
-  max-width: 30px;
-}
-
-.workTxtContainer img {
-  min-height: 20px;
-}
-
-.topRow a,
-.projectLinkImg {
-  max-width: 30px;
-  grid-column-start: 4;
-}
+/* ------------------------------------
+   Call to Action
+------------------------------------ */
 
 .callToAction {
   display: grid;
@@ -217,20 +267,21 @@ header {
   text-align: center;
 }
 
-.footerContainer {
-  background-color: #7d7f7c;
-    font-size: clamp(1.2rem, 2vw, 2rem); /* Minimum size 1rem, maximum size 2rem, scaling based on viewport width */
-  
-  
-  gap: 30px;
-  color: #d4d2cf;
-  display: grid;
-  padding: 7%;
-  word-wrap: break-word; /* Ensures long words break onto the next line */
-  word-break: break-word; /* Handles long strings without spaces */
-  overflow-wrap: break-word; /* Additional support for text wrapping */
-}
+/* ------------------------------------
+   Footer
+------------------------------------ */
 
+.footerContainer {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  display: grid;
+  gap: 30px;
+  padding: 7%;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
 
 .footerContainer h2 {
   font-size: 3rem;
@@ -240,24 +291,126 @@ header {
   font-size: 1.6rem;
 }
 
-.footerIconContainer{
-display: flex;
-justify-content: center;
-gap: 5%;
-margin-bottom: 20%;
+/* ------------------------------------
+   Animations
+------------------------------------ */
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
-.footerIcn, .footerIcn img{
-min-width: 20%;
-height: auto;
-}
+/* ------------------------------------
+   Scrollbar Styling
+------------------------------------ */
 
 ::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
+  width: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #888; 
-  border-radius: 10px; 
-  border: 3px solid transparent; 
+  background-color: #888;
+  border-radius: 10px;
+  border: 3px solid transparent;
+}
+
+/* ------------------------------------
+   Media Queries
+------------------------------------ */
+
+/* Desktop and Laptop Screens */
+@media (min-width: 1024px) {
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .imageContainer {
+    height: 60vh;
+    max-width: 30vw;
+  }
+
+  .imageContainer img {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    padding: 0;
+  }
+
+  .aboutContainer {
+    background-color: lightgray;
+    flex-basis: 60%;
+    padding: 20px;
+    grid-template-rows: repeat(3, auto);
+    align-items: center;
+    width: min(100vw - 0.5rem);
+    justify-items: start;
+  }
+
+  .textContainer p {
+    margin-left: 15px;
+  }
+
+  .iconContainer {
+    justify-content: flex-end;
+    padding-right: 3vmin;
+    gap: 2vmin;
+  }
+
+  .iconContainer img {
+    max-width: 60px;
+  }
+
+  .workHeader {
+    justify-self: start;
+    font-size: calc(2.6rem + 0.5vw);
+  }
+
+  .workSection {
+    display: grid;
+    grid-template-rows: auto auto;
+    margin-left: 10%;
+    margin-top: 15.5%;
+    margin-bottom: 10%;
+    height: auto;
+  }
+
+  .myWork {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+  }
+
+  .project {
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .project h5 {
+    font-size: calc(1.6rem + 0.5vw);
+  }
+
+  .project p {
+    font-size: calc(1.5rem + 0.5vw);
+  }
+
+  .project img {
+    height: 100%;
+    width: auto;
+  }
+
+  .workTxtContainer img {
+    min-height: 50px;
+  }
+
+  .footerContainer{
+    height: auto;
+  }
+}
+
+/* Tablet Screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Add specific styles for tablet screens here */
 }
