@@ -11,6 +11,7 @@ import projectImg6 from './assets/images/cat6.jpg';
 import projectImg7 from './assets/images/cat7.jpg';
 import projectImg8 from './assets/images/cat8.jpg';
 import footerPortrait from './assets/images/footerP.jpg';
+import desktopPortrait from './assets/images/footerP2.jpg';
 
 export default function loadDom() {
   // Select DOM elements
@@ -21,6 +22,7 @@ export default function loadDom() {
   const project1PicContainers = document.querySelectorAll('.project');
   const footerIcn1 = document.querySelector('.footerIcn1');
   const footerIcn2 = document.querySelector('.footerIcn2');
+
   const footerPcontainer = document.querySelector('.footerPortrait');
 
   // Check if the elements exist to avoid errors
@@ -95,6 +97,9 @@ export default function loadDom() {
   footerIcn2.appendChild(footerGitHub);
 
   const footerP = new Image();
+
+  const srcsetValues = './assets//images/footerP2.jpg 640w';
+  footerP.setAttribute('srcset', srcsetValues);
   footerP.src = footerPortrait;
   footerP.alt = 'a portrait of a cat';
   footerPcontainer.appendChild(footerP);

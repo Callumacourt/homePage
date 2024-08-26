@@ -9,11 +9,6 @@
   margin: 0;
 }
 
-* {
-  outline: 1px solid red; /* This will highlight all elements and make it easier to spot the overflowing content */
-}
-
-
 img,
 picture,
 video,
@@ -200,6 +195,11 @@ header {
   max-width: 80%;
 }
 
+.workHeader{
+  display: flex;
+  justify-content: center;
+}
+
 .workTxtContainer {
   grid-row-start: 2;
   background-color: white;
@@ -257,7 +257,7 @@ header {
   margin-left: 10px;
   flex-shrink: 0;
   height: auto;
-  align-self: flex-start;
+  width: 30px;
 }
 
 /* ------------------------------------
@@ -290,6 +290,14 @@ header {
 
 .footerContainer h2 {
   font-size: 3rem;
+}
+
+.footerPortrait{
+  height: 50vh;;
+}
+
+.footerPortrait img{
+  height: 100%;
 }
 
 .footerContainer h3 {
@@ -368,12 +376,19 @@ header {
     max-width: 60px;
   }
 
+  .topRow a {
+    margin-left: 10px;
+    flex-shrink: 0;
+    height: auto;
+    width: 100%;
+  }
+
   .workHeader {
     margin-top: 10%;
-    justify-self: start;
     font-size: calc(2.6rem + 0.5vw);
     width: 100%;
-    justify-items: center;
+   display: flex;
+   justify-content: center;
   }
 
   .workSection {
@@ -412,14 +427,57 @@ header {
   .workTxtContainer img {
     min-height: 50px;
   }
-  
+
+  .callToAction{
+    text-align: left;
+    justify-items: start;
+  }
 
   .footerContainer{
+  display: flex;
+  flex-direction: column;
+  padding-left: 7%;
+  padding-top: 7%;
+  padding-right: 0;
+  }
+
+  .footerContainer p{
+    font-size: calc(1.5rem + 0.7vw);
+  }
+
+  .footerContainer h2{
+    font-size: calc(2.5rem + 0.7vw);
+  }
+
+  .footerContainer h3{
+    font-size: calc(1.5rem + 0.7vw);
+  }
+
+  .footerPortrait {
+    display: flex;
+    background-color: grey;
+    width: 100%; /* Make sure container is as wide as needed */
+    grid-column: 2;
+    padding: 5%;
+  }
+  
+  .footerPortrait img { /* Ensure the image can stretch to fit the container width */
+    width: 100%;
     height: auto;
   }
+  
+  .bottomContainer{
+    display: grid;
+
+grid-template-columns: 1fr 1.25fr;
+font-size: 3rem;
+  }
+  
 }
 
 /* Tablet Screens */
 @media (min-width: 768px) and (max-width: 1023px) {
-  /* Add specific styles for tablet screens here */
+
+
+ 
 }
